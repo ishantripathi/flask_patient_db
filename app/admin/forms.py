@@ -10,6 +10,7 @@ class PatientForm(FlaskForm):
     Form for admin to add or edit a patient
     """
 
+
     name = StringField('Name', validators=[DataRequired()])
     mdtc = IntegerField('MTDC', validators=[DataRequired()])
     age = IntegerField('Age', validators=[DataRequired()])
