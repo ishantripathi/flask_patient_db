@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Patient Database</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-theme.min.css') }}">
+<style>
+
+body {
+    background-color: lightyellow;
+}
+
+
+
+</style>
+
+<script src="{{url_for('static', filename='js/jquery-3.1.1.slim.min.js')}}"></script>
+<script>
+
+
+$(function() {
+  $("#addMore").click(function(e) {
+    e.preventDefault();
+
+
+    $("table:last").after("<table><tr><input name='chemotherapy[]' type='text' placeholder='Chemotherapy' /><input  name='cycle[]' type='number' placeholder='Cycle' /><input name='response[]' type='text' placeholder='Response'><input name='sideeffect[]' type='text' placeholder='Side Effect'></tr></table>");
+    $("table").addClass("table table-bordered table-responsive");
+	$("input").addClass("form-control");
+  });
+});
+
+
+</script>
+</head>
+<body>
+
+
+
+<div class="container">
+
+
+	<div class="page-header">
+    	<h1 class="h2">Go Back to Home <a class="btn btn-default" href="index.html">  &nbsp; Home </a></h1>
+    </div>
+
+
+{% block body %}
+{% endblock %}
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
+<!--  ############################### Patient Details Segment ########################################## -->
+	<div class="alert alert-info"><strong>Patient Details</strong> </div>
+
+	<table class="table table-bordered table-responsive">
+
+    <tr>
+    	<td><label class="control-label">Name.</label></td>
+        <td><input class="form-control" type="text" name="name" placeholder="Enter name" value="Name" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">Age</label></td>
+        <td><input class="form-control" type="number" name="age" placeholder="Enter Age" value="Value" /></td>
+    </tr>
+
+	 <tr>
+    	<td><label class="control-label">MDTC</label></td>
+        <td><input class="form-control" type="text" name="mdtc" placeholder="Enter MDTC" value="MDTC" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">Sex</label></td>
+        <td>&nbsp;<input  type="checkbox" name="sex[]"  value="male" /> Male &nbsp; &nbsp; &nbsp; <input  type="checkbox" name="sex[]" value="female"> Female<br></td>
+
+	</tr>
+	<tr>
+    	<td><label class="control-label">Phone Number</label></td>
+        <td>&nbsp;<input  class="form-control" type="number" name="ph_no" placeholder="Enter Phone Number" value="" /></td>
+
+	</tr>
+
+	<tr>
+    	<td><label class="control-label">Diagnosis</label></td>
+        <td>
+		<select class="form-control" name="diagnosis">
+        <option value="lung(adenoca)">Lung(adenoca)</option>
+        <option value="lung(sclc)">Lung(sclc)</option>
+        <option value="lung(sqsclc)">Lung(sqsclc)</option>
+        <option value="net">NET</option>
+		<option value="nec">NEC</option>
+		<option value="ovary">Ovary</option>
+		<option value="hcc">HCC</option>
+		<option value="gallbladder">Gall Bladder</option>
+		<option value="pancreas">Pancreas</option>
+		<option value="colon">Colon</option>
+		<option value="cervix">Cervix</option>
+		<option value="gbm">GBM</option>
+		<option value="braintumor">Brain Tumor</option>
+		<option value="oralcavity">Oral Cavity</option>
+		<option value="larynx">Larynx</option>
+		<option value="pharynx">Pharynx</option>
+		<option value="esophagin">Esophagin</option>
+		<option value="stomach">Stomach</option>
+		<option value="analcanal">Analcanal</option>
+        <option value="rectum">Rectum</option>
+		<option value="sarcoma">Sarcoma</option>
+		<option value="gist">GIST</option>
+		<option value="skin">Skin</option>
+		<option value="rcc">RCC</option>
+		<option value="">Others<input class="form-control" type="text" name="other_diagnosis" placeholder="Other Diagnosis"  /></option>
+       </select>
+
+	   </td>
+
+
+    </tr>
+
+
+    <tr>
+    	<td><label class="control-label">Image</label></td>
+        <td><input class="input-group" type="file" name="image[]" multiple accept="image/*" /></td>
+    </tr>
+
+
+
+    </table>
+
+<!--  ############################### Symptoms & Signs Segment ########################################## -->
+	<div class="alert alert-info"><strong>Symptoms & Signs </strong> </div>
+
+	<table class="table table-bordered table-responsive">
+	<tr>
+    	<td><label class="control-label">symptoms</label></td>
+        <td><label class="control-label" ><input  type="checkbox" name="symptoms[]"  value="cough" > Cough</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		          <label><input  type="checkbox" name="symptoms[]" value="hemoptysis"> Hemoptysis</label> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="weightloss"> Weight Loss</label> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="fever"> Fever </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="fatigue"> Fatigue </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="lymphadenopathy"> lymphadenopathy </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="ascites"> ascites </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="seizure"> seizure </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="fnd"> fnd </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="uninvolvement"> uninvolvement </label>&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="abdomenpain"> abdomenpain</label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="hematuria"> hematuria </label>&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="hematochezia"> hematochezia </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				  <label><input  type="checkbox" name="symptoms[]" value="swelling"> Swelling </label>&nbsp; &nbsp; &nbsp;<br>
+				  Others:<input class="form-control" type="text" name="symptoms[]" placeholder="Other Symptoms (please,use,comma,separated,values )"  />
+
+				  </td>
+	</tr>
+	 </table>
+
+<!--  ############################### Investigation ########################################## -->
+	<div class="alert alert-info"><strong> Investigation </strong> </div>
+
+	<table class="table table-bordered table-responsive">
+
+    <tr>
+    	<td><label class="control-label">Histopathology</label></td>
+        <td><input class="form-control" type="text" name="histopathology" placeholder="Histopathology" value="" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">IHC</label></td>
+        <td><input class="form-control" type="text" name="ihc" placeholder="IHC" value="" /></td>
+    </tr>
+
+	 <tr>
+    	<td><label class="control-label">Genetic Mutation</label></td>
+        <td><input class="form-control" type="text" name="geneticmutation" placeholder="Genetic Mutation" value="" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">CT Scan</label></td>
+        <td><input class="form-control" type="text" name="ihc" placeholder="IHC" value="" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">WPET</label></td>
+        <td><input class="form-control" type="text" name="wpet" placeholder="WPET" value="" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">UGIE</label></td>
+        <td><input class="form-control" type="text" name="ugie" placeholder="UGIE" value="" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">Colonoscopy</label></td>
+        <td><input class="form-control" type="text" name="colonoscopy" placeholder="Colonoscopy" value="" /></td>
+    </tr>
+
+	<tr>
+    	<td><label class="control-label">MRI</label></td>
+        <td><input class="form-control" type="text" name="mri" placeholder="MRI" value="" /></td>
+    </tr>
+	<tr>
+    	<td><label class="control-label">Others</label></td>
+        <td><input class="form-control" type="text" name="other_investigation" placeholder="Other Investigations" value="" /></td>
+    </tr>
+	</table>
+
+
+	<!--  ############################### Chemotherapy ########################################## -->
+
+
+<div class="alert alert-info"><strong>Chemotherapy</strong> </div>
+<table class="table table-bordered table-responsive">
+ <tr>
+    <input class="form-control" name="chemotherapy[]" type="text" placeholder="Chemotherapy" />
+    <input class="form-control" name="cycle[]" type="number" placeholder="Cycle" />
+    <input class="form-control" name="response[]" type="text" placeholder="Response">
+    <input class="form-control" name="sideeffect[]" type="text" placeholder="Side Effect">
+	 </tr>
+  </table>
+  <button id="addMore">Add Next Cycle</button>
+
+
+<br><br>
+
+
+<!--  ############################### Remarks ########################################## -->
+
+
+<div class="alert alert-info"><strong>Remarks</strong> </div>
+
+	<textarea class="form-control" name="remarks">
+
+</textarea>
+
+<br><br>
+		<!--  ############################### Save Buton ########################################## -->
+		<div class="alert alert-info"><strong>SAVE</strong> </div>
+		<button type="submit" name="btnsave" class="alert alert-info">
+        <span class="glyphicon glyphicon-save"></span> &nbsp; save
+		</button>
+</form>
+
+
+
+
+<div class="alert alert-info">
+    <strong>Patient Database</strong>
+</div>
+
+
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,148 @@
+<!-- app/templates/admin/departments/department.html -->
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+
+
+{% block title %}
+    {% if add_patient %}
+        Add Patient
+    {% else %}
+        Edit Patient
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="center">
+            {% if add_patient %}
+                <h1>Add Patient</h1>
+            {% else %}
+                <h1>Edit Patient</h1>
+            {% endif %}
+            <br/>
+
+                        <form action="" method="post">
+                         <fieldset>
+
+                        <h2 align="center">Patient Details</h2>
+                            {{ wtf.form_field(form.name ) }}
+                            {{ wtf.form_field(form.mdtc ) }}
+                            {{ wtf.form_field(form.age ) }}
+                            {{ wtf.form_field(form.sex ) }}
+                            {{ wtf.form_field(form.phone_no ) }}
+                            {{ wtf.form_field(form.diagnosis ) }}
+                            {{ wtf.form_field(form.other_diagnosis ) }}
+                                <hr class="intro-divider">
+                        <h2 align="center">Symptoms & Signs</h2>
+                            {{ wtf.form_field(form.symptoms ) }}
+                                <hr class="intro-divider">
+                        <h2 align="center">Investigation </h2>
+                            {{ wtf.form_field(form.histopathology ) }}
+                            {{ wtf.form_field(form.ihc ) }}
+                            {{ wtf.form_field(form.genetic_mutation ) }}
+                            {{ wtf.form_field(form.ct_scan ) }}
+                            {{ wtf.form_field(form.wpet ) }}
+                            {{ wtf.form_field(form.ugie ) }}
+                            {{ wtf.form_field(form.colonoscopy ) }}
+                            {{ wtf.form_field(form.mri ) }}
+                            {{ wtf.form_field(form.other_investigation) }}
+
+
+
+                <h2 align="center">Chemotherapy</h2>
+            <div id="yrContainer">
+               <div id="fields_1">
+                      <hr class="intro-divider">
+                      <hr class="intro-divider">
+
+                             {{ form.hidden_tag() }}
+                               {% for cycle in form.cycle %}
+                                    {{ wtf.form_field(cycle) }}
+                                {% endfor %}
+
+                                {% for chemo in form.chemotherapy %}
+                                    {{ wtf.form_field(chemo) }}
+                                {% endfor %}
+
+                                {% for description in form.description %}
+                                    {{ wtf.form_field(description) }}
+                                {% endfor %}
+
+                                {% for response in form.response %}
+                                    {{ wtf.form_field(response) }}
+                                {% endfor %}
+
+                                {% for side_effect in form.side_effect %}
+                                    {{ wtf.form_field(side_effect) }}
+                                {% endfor %}
+
+
+                              </div>
+
+
+               </div>
+                            <div class="btn btn-default" >
+                         <button type="button" id="myButton">Add cycle</button>
+                            </div>
+
+                            <script>
+                						var sectionsCount = 0;
+                       $("#myButton").click( function () {
+							sectionsCount++;
+                            var fields = $('#fields_1').clone().attr("id","fields_2");
+                            var inputs = fields.find("input");
+                            inputs.each(function() {
+
+                                 //set id to store the updated section number
+                           var cutid = this.id.split('-');
+                           var newId = cutid[0] +'-'+ sectionsCount;
+
+                           //update for label
+                           $(this).prev().attr('for', newId);
+
+                           //update id
+                           this.id = newId;
+
+
+                            //set name to store the updated section name
+                           var cutname = this.name.split('-');
+                           var newName = cutname[0] +'-'+ sectionsCount;
+
+                           //update for label
+                           $(this).prev().attr('for', newName);
+
+                           //update id
+                           this.name = newName;
+
+
+                           });
+                          fields.appendTo('#yrContainer')
+                        })
+                        </script>
+
+
+
+
+
+
+                                <hr class="intro-divider">
+                                 <h2 align="center">Remarks </h2>
+
+                                {{ wtf.form_field(form.remarks ) }}
+                                <hr class="intro-divider">
+                                {{ wtf.form_field(form.submit ) }}
+
+
+                         </fieldset>
+                         </form>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

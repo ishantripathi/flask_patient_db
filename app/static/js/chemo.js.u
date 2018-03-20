@@ -1,0 +1,20 @@
+
+if (typeof jQuery === 'undefined') {
+  throw new Error('Bootstrap\'s JavaScript requires jQuery')
+}
+
++function ($) {
+  'use strict';
+  var version = $.fn.jquery.split(' ')[0].split('.')
+  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] > 2)) {
+    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3')
+  }
+}(jQuery);
+
+
+$(function() {
+  $("#addMore").click(function(e) {
+    e.preventDefault();
+    $("fieldset:last").after("<fieldset><input type='text' name='name[]' placeholder='Name' /><br /><input type='text' name='phone[]' placeholder='Phone' /><br /><input type='text' name='email[]' placeholder='E-Mail' /><br /></fieldset>");
+  });
+});
